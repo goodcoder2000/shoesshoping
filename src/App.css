@@ -1,38 +1,256 @@
-.App {
+body{
+  background-color: #63AAD4;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.cnav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ margin-bottom: 60px;
+}
+.nav-btn{
+  background-color: rebeccapurple;
+  margin: 0 20px;
+  
+}
+.Cover{
+  background: rgb(170,235,222);
+  background: linear-gradient(230deg, rgba(170,235,222,1) 0%, rgba(197,228,222,1) 100%);
+  width: 80%;
+  height: 100vh;
+  margin: 10px auto;
+  padding: 18px;
+  border-radius: 10px;
+  position: relative;
+}
+.cbody-right-text{
+  position: absolute;
+  right: 0;
+  top: 220px;
+}
+.menuIcon{
+  padding: 5px;
+  margin-right: 23px;
+  background-color: #48738D;
+  border-radius: 3px;
+}
+
+.cover-media{
+  margin: 17px 0;
+}
+.Cbody{
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+  font-size: 16px;
+}
+.left{
+  /* background-color: greenyellow; */
+  padding: 10px 15px;
+}
+.right{
+  /* background-color: rebeccapurple; */
   text-align: center;
 }
+.CImg{
+  width: 70%;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  /* position: relative;
+  z-index: 3;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0px;
+  left: 0;
+  right: 0; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title{
+  text-align: left;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  color: #025474;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.backgroundText{
+  font-size: 8em;
+  color: #63AAD4;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+.left-small-text{
+  text-align: right;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.left-small-pirces{
+  color: #fff;
+  font-size: 29px;
+  font-weight: bolder;
+}
+.cover-icon-container{
+  padding: 5px;
+  width: 27px;
+  position: fixed;
+  top: 160px;
+  left: 0;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.samll-icon{
+  position: absolute;
+  top: 18px;
+  left: 13px;
+}
+.shop-btn-container{
+  margin-top: 60px;
 }
 
-.App-link {
-  color: #61dafb;
+/* login */
+.login-box{
+  max-width: 320px;
+  padding: 10px 15px;
+  margin: 100px auto;
+  border-radius: 8px;
+  background: rgb(170,235,222);
+background: linear-gradient(357deg, rgba(170,235,222,1) 0%, rgba(197,228,222,0.8076272745426296) 100%);
+}
+.input-type-control{
+  text-align: center;
+  margin: 15px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Home */
+.nav{
+  background: rgb(170,235,222);
+  background: linear-gradient(230deg, rgba(170,235,222,1) 0%, rgba(197,228,222,1) 100%);
+  display: flex;
+  padding: 20px 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+.home-layout{
+ 
+}
+.shoes{
+  padding: 15px 20px;
+  margin-top: 20px;
+  height: 900px;
+}
+.each-product{
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  width: 65%;
+  height: 300px;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.product-header{
+  /* position: absolute;
+  top: 10px;
+  left: 10px; */
+}
+.product-fav{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.add-cart-btn{
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+}
+.img-contorl{
+  width: 100%;
+}
+.product-img-container{
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .each-product{
+    height: 200px;
   }
-  to {
-    transform: rotate(360deg);
+  .product-img-container{
+    height: 100px;
+  }
+}
+@media (max-width: 900px) {
+  .Cover{
+    width: 90%;
+  }
+  .left-small-tex{
+    font-size: 1em;
+  }
+  .backgroundText{
+    font-size: 6em;
+  }
+  .CImg{
+    /* width: 40%; */
+  }
+  .cbody-right-text{
+    top: 140px;
+  }
+  .text-btn-container{
+    margin-left: 45px;
+    margin-top: 35px;
+  }
+
+}
+
+
+
+
+@media (max-width: 750px) {
+  .right-small-text{
+   font-size: 12px;
+  }
+  .CImg{
+    /* width: 45%; */
+  }
+}
+
+@media (max-width: 600px) {
+  .product-fav{
+    top: 2px
+  }
+}
+@media (max-width: 550px) {
+  .backgroundText{
+    font-size: 4em;
+  }
+  .CImg{
+    /* width: 35%; */
+  }
+  .cbody-right-text{
+    
+    display: none;
+  }
+  .text-btn-container{
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 371px) {
+  .backgroundText{
+    font-size: 2em;
+  }
+  .CImg{
+    /* width: 60%; */
+  }
+  .text-btn-container{
+    margin-top: 100px;
+  }
+  .login-box{
+    width: 80%;
+    padding: 5px 0;
   }
 }

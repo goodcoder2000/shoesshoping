@@ -11,7 +11,8 @@ const Usefetch = (url) =>{
             return res.json();
         })
         .then((datas) =>{
-            setData(datas)
+            setData(datas);
+            setPreloading(false)
         })
         .catch( err =>console.log(err.message))
     }, [])

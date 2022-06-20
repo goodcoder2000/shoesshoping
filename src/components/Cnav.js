@@ -1,15 +1,17 @@
 import  Grid  from "@mui/material/Grid";
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
+import IconButton  from "@mui/material/IconButton";
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const Cnav = () =>{
     const navigate = useNavigate();
-
+    const [ menu, setMenu] = useState("none");
     return(
         <div className="cnav">
             <Grid container>
@@ -44,9 +46,28 @@ const Cnav = () =>{
 
             <Hidden only={["xl","lg","md"]}>
                 <div className="samll-icon">
-                    <Button variant="outlined">
-                        <MenuIcon fontSize="medium"/>
-                    </Button>
+                    <IconButton
+                    onClick={ () => setMenu("block")}
+                    >
+                        <MenuIcon fontSize="large"/>
+                    </IconButton>
+
+                    <div style={{display: menu}} className="hidden-small-menu">
+                            <div className="small-login"
+                            onClick={ () =>navigate('/login') }
+                            >Login</div>
+                            <div className="small-login"
+                            onClick={ () =>navigate('/signup') }
+                            >Signup</div>
+                            
+                            <div className="close-btn-menu"
+                            onClick={ () => setMenu("none") }
+                            >
+                                <IconButton>
+                                    <CloseIcon/>
+                                </IconButton>
+                            </div>
+                    </div>
                 </div>
             </Hidden>
         </div>       

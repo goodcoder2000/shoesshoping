@@ -10,7 +10,7 @@ const Shoes = ({data}) =>{
                 {data?.map((eachp) =>{
                     return (
                         <Grid key={eachp.id} item xl={2} lg={4} md={3} sm={4} xs={6}>
-                            <Eachp image={eachp.image}/>
+                            <Eachp image={eachp.image} price={eachp.price} id={eachp.id}/>
                         </Grid>
                     )
                 })}

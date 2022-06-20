@@ -4,13 +4,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 
-const Eachp = ({image}) =>{
+const Eachp = ({image,price,id}) =>{
     return(
         <div className="each-product">
             <div className="product-header">
                 <p>NIKE</p>
                 <h4>EPIC-REACT</h4>
-                <p>$130.0</p>
+                <p>$ {price}</p>
             </div>
             <div className="product-fav">
                 <IconButton>
@@ -24,7 +24,7 @@ const Eachp = ({image}) =>{
 
 
             <div className="add-cart-btn">
-                <Link to="">more</Link>
+                <Link to={`products/${id}`}>more</Link>
             </div>
         </div>
     )

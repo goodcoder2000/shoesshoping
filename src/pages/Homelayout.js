@@ -7,6 +7,7 @@ const Homelayout = ({data}) =>{
         <div className="home-layout">
             <Nav/>
             <Shoes data={data}/>
+   
             
         </div>
     )

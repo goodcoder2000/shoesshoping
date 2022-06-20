@@ -1,6 +1,7 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
 import Usefetch from "../components/Usefetch";
 import Homelayout from "./Homelayout";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Home = () =>{
     
@@ -10,6 +11,11 @@ const Home = () =>{
     return(
         <div>
            <Homelayout data={data}/>
+           {preLoading && 
+                <div className="preloading">
+               <CircularProgress color="secondary"/>
+            </div>
+}
         </div>
     )
 }

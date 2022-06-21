@@ -1,17 +1,20 @@
 import React from "react";
-import one from "../images/1.png";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Eachp = ({image,price,id}) =>{
     return(
-        <div className="each-product">
+        
+        <div className="each-product"
+        
+        >
             <div className="product-header">
                 <p>NIKE</p>
                 <h4>EPIC-REACT</h4>
-                <p>$ {price}</p>
             </div>
+
             <div className="product-fav">
                 <IconButton>
                     <FavoriteBorderIcon/>
@@ -22,10 +25,13 @@ const Eachp = ({image,price,id}) =>{
                 <img className="img-contorl" src={image}/>
             </div>
 
-
-            <div className="add-cart-btn">
-                <Link to={`products/${id}`}>more</Link>
+            <div className="eachp-footer">
+                <p className="eachp-price">{Math.floor(price *1859)} Ks</p>
+                <Link to={`products/${id}`}>
+                    <ArrowForwardIcon/>
+                </Link>
             </div>
+           
         </div>
     )
 }

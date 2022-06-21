@@ -11,9 +11,9 @@ const Signup  = () =>{
 
                         <div className="input-type-control">
                             <TextField
-                            defaultValue="@gmail.com"
+                            defaultValue="09-"
                             sx={{ m: 1, width: '30ch' }}
-                            label="Email"
+                            label="Phone Number"
                             type="email"
                             autoComplete="current-password"
                             variant="standard"
@@ -30,11 +30,22 @@ const Signup  = () =>{
                             />
                         </div>
 
+                        
+
                         <div className="input-type-control">
                             <TextField
                             sx={{ m: 1, width: '30ch' }}
                             label="Re-type Password"
                             type="password"
+                            autoComplete="current-password"
+                            variant="standard"
+                            />
+                        </div>
+
+                        <div className="input-type-control">
+                            <TextField
+                            sx={{ m: 1, width: '30ch' }}
+                            label="Address"
                             autoComplete="current-password"
                             variant="standard"
                             />

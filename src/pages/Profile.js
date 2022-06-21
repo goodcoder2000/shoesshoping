@@ -1,14 +1,16 @@
 import { Button, IconButton } from "@mui/material";
 import React from "react";
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from "react-router-dom";
 
-const Profile = ({display, setDisplay}) =>{
+const Profile = () =>{
+    const navigate = useNavigate();
     return(
-        <div style={{display: display}} className="profile">
+        <div className="profile">
             <div>
-                <IconButton onClick={() =>{
-                    setDisplay('none');
-                }}>
+                <IconButton
+                onClick= {() =>navigate('/home')}
+                >
                     <CloseIcon/>
                 </IconButton>
             </div>

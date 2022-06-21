@@ -11,9 +11,9 @@ const Login  = () =>{
 
                         <div className="input-type-control">
                             <TextField
-                            defaultValue="@gmail.com"
+                            defaultValue="09-"
                             sx={{ m: 1, width: '30ch' }}
-                            label="Email"
+                            label="Phone Number"
                             type="email"
                             autoComplete="current-password"
                             variant="standard"

@@ -13,7 +13,7 @@ const Home = () =>{
            <Homelayout data={data}/>
            {preLoading && 
                 <div className="preloading">
-               <CircularProgress color="secondary"/>
+               <CircularProgress style={{color: "#6C757D"}}/>
             </div>
 }
         </div>

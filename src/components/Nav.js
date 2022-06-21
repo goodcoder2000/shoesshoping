@@ -36,15 +36,19 @@ const Nav = () =>{
                     <IconButton aria-label="cart"
                     onClick={() =>navigate('/cart')}
                     >
-                        <StyledBadge badgeContent={5} color="primary">
-                            <ShoppingCartIcon fontSize="large"/>
+                        <StyledBadge badgeContent={5} color="error">
+                            <ShoppingCartIcon fontSize="large"
+                            style={{color: "#DEE2E6"}}
+                            />
                         </StyledBadge>
                     </IconButton>
            
                     <IconButton
                     onClick={ () => navigate('/profile')}
                     >
-                        <PersonPinIcon fontSize="large"/>
+                        <PersonPinIcon fontSize="large"
+                        style={{color: "#DEE2E6"}}
+                        />
                     </IconButton>
                
                 </Grid>

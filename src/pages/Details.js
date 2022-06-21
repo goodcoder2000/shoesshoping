@@ -71,7 +71,7 @@ const Details = () =>{
             {/* preLoading */}
             {preLoading && 
                 <div className="preloading">
-               <CircularProgress color="secondary"/>
+               <CircularProgress style={{color: "#6C757D"}}/>
             </div>
             }
         </div>

@@ -1,7 +1,9 @@
-import { Button, IconButton } from "@mui/material";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import React from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Profile = () =>{
     const navigate = useNavigate();
@@ -11,16 +13,20 @@ const Profile = () =>{
                 <IconButton
                 onClick= {() =>navigate('/home')}
                 >
-                    <CloseIcon/>
+                    <ArrowBackIcon/>
                 </IconButton>
             </div>
-            <div className="ava">L</div>
-            <h4 className="user-name">User - L Zay Ko Ko</h4>
 
-            <div className="user-id">User id - </div>
-            <div className="user-phone">Ph no - </div>
-            <div className="user-phone">Address - </div>
-            <Button style={{margin: "10px"}} variant="outlined">Logout</Button>
+            <div className="profile-body">
+                
+                <div className="ava">L</div>
+                <h4 className="user-name">User - L Zay Ko Ko</h4>
+
+                <div className="user-id">User id - </div>
+                <div className="user-phone">Ph no - </div>
+                <div className="user-phone">Address - </div>
+                <Button style={{margin: "10px"}} variant="outlined">Logout</Button>
+            </div>
         </div>
     )
 }

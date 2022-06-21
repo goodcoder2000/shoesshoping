@@ -11,13 +11,13 @@ const Cfooter = () =>{
             {/* social media link icon */}
             <div className="cover-icon-container">
                             <div>
-                                <FacebookIcon/>
+                                <FacebookIcon style={{color: "#F8F9FA"}}/>
                             </div>
                             <div className="cover-media">
-                                <TwitterIcon />
+                                <TwitterIcon style={{color: "#F8F9FA"}} />
                             </div>
                             <div>
-                                <InstagramIcon/>
+                                <InstagramIcon style={{color: "#F8F9FA"}}/>
                             </div>
                         </div>
         </div>

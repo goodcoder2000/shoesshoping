@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1
+    },
+    {
+      "name": "zayyakoko",
+      "phone": "09753324112",
+      "password": "123",
+      "rePassword": "123",
+      "address": "myitkyina, kyoung pin thar",
+      "id": 2
+    },
+    {
+      "name": "dawkhinlayyee",
+      "phone": "092402015",
+      "password": "qwer",
+      "rePassword": "qwer",
+      "address": "myitkyina",
+      "id": 3
+    },
+    {
+      "name": "dawkhinlayyee",
+      "phone": "092402015",
+      "password": "qwer",
+      "rePassword": "qwer",
+      "address": "myitkyina",
+      "id": 4
+    },
+    {
+      "name": "baby",
+      "phone": "09784695474",
+      "password": "qwer",
+      "rePassword": "qwer",
+      "address": "bhamo",
+      "id": 5
+    }
+  ]
+}

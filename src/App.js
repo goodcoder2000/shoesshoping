@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
+import Notexits from "./pages/Notexits";
 
 const App = () =>{
   return(
@@ -17,10 +18,11 @@ const App = () =>{
               <Route path="/" element={<Cover/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/signup" element={<Signup/>}/>
-              <Route path="/home" element={<Home/>}/>
+              <Route exact path="/:userPhno/Home" element={<Home/>}/>
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path="/home/products/:id" element={<Details/>}/>
+              <Route path="*" element={<Notexits/>}/>
             </Routes>
       </div>
     </BrowserRouter>

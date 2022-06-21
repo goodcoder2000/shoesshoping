@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const Eachp = ({image,price,id}) =>{
+const Eachp = ({image,price,id,title,category}) =>{
     return(
         
         <div className="each-product"
         
         >
             <div className="product-header">
-                <p>NIKE</p>
-                <h4>EPIC-REACT</h4>
+                <p>{category}</p>
+                <h4>{title}</h4>
             </div>
 
             <div className="product-fav">

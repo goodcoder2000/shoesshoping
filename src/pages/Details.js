@@ -13,6 +13,9 @@ const Details = () =>{
     const { id } = useParams();
     const { data, preLoading } = Usefetch("https://fakestoreapi.com/products/"+ id);
 
+    const dataRecieve = (image,title,price,id) =>{
+        console.log({image: image, title:  title, price: price, id: id})
+    }
     return(
         <div>
             <Nav/>
@@ -61,7 +64,9 @@ const Details = () =>{
                             </div>
                             
                             <div>
-                                <Button style={{color: "red", borderColor:  "red"}} variant="outlined">add to cart <AddShoppingCartIcon/></Button>
+                                <Button style={{color: "red", borderColor:  "red"}} variant="outlined"
+                                onClick={ () => dataRecieve(data.image,data.title,data.price,data.id) }
+                                >add to cart <AddShoppingCartIcon/></Button>
                             </div>
                     </div>
 

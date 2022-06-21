@@ -1,5 +1,7 @@
 body{
-  background-color: #a5a58d;
+  /* background-color: #a5a58d;
+   */
+  background-color: red;
   overflow-x: hidden;
 }
 *{

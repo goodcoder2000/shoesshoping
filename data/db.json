@@ -3,37 +3,31 @@
     {
       "id": 1
     },
+    [
+      {
+        "name": "fdsa",
+        "phone": "09753324112",
+        "password": "qwe",
+        "address": "myitkyina, kyoung pin thar",
+        "orderpost": []
+      }
+    ],
     {
-      "name": "zayyakoko",
-      "phone": "09753324112",
-      "password": "123",
-      "rePassword": "123",
-      "address": "myitkyina, kyoung pin thar",
-      "id": 2
-    },
-    {
-      "name": "dawkhinlayyee",
-      "phone": "092402015",
-      "password": "qwer",
-      "rePassword": "qwer",
-      "address": "myitkyina",
-      "id": 3
-    },
-    {
-      "name": "dawkhinlayyee",
-      "phone": "092402015",
-      "password": "qwer",
-      "rePassword": "qwer",
-      "address": "myitkyina",
-      "id": 4
-    },
-    {
-      "name": "baby",
+      "name": "koko",
       "phone": "09784695474",
-      "password": "qwer",
-      "rePassword": "qwer",
+      "password": "123",
       "address": "bhamo",
-      "id": 5
+      "orderpost": [
+        {
+          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+          "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+          "price": 109.95,
+          "id": 1,
+          "count": 1,
+          "orderConformed": false
+        }
+      ],
+      "id": 3
     }
   ]
 }

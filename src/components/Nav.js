@@ -7,7 +7,7 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import Hidden from "@mui/material/Hidden";
 import { useNavigate } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -19,6 +19,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   }));
 
 const Nav = () =>{
+    const {userPhno, userId} = useParams();
     const navigate = useNavigate();
     return(
             <div className="nav">
@@ -34,7 +35,7 @@ const Nav = () =>{
 
                 <Grid item xl={6} lg={6} md={6} sm={6} xs={5} textAlign="right">
                     <IconButton aria-label="cart"
-                    onClick={() =>navigate('/cart')}
+                    onClick={() =>navigate(`/${userPhno}/${userId}/cart`)}
                     >
                         <StyledBadge badgeContent={5} color="error">
                             <ShoppingCartIcon fontSize="large"
@@ -54,6 +55,7 @@ const Nav = () =>{
                 </Grid>
             </Grid>
 
+            {console.log(userPhno, userId)}
             </div>
     )
 }

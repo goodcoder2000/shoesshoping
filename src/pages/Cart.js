@@ -3,47 +3,35 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import IconButton from "@mui/material/IconButton";
 import one from "../images/1.png";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+import Usefetch from "../components/Usefetch";
+import Cartbody from "./Cartbody";
 
 const Cart = () =>{
     const navigate = useNavigate();
+    const { userId } = useParams();
+
+    const { data, preLoading } = Usefetch("http://localhost:3001/"+userId);
     return(
         <div className="cart">
-            <div>
-                <IconButton
-                onClick={ ()=>navigate('/home') }
-                >
-                    <ArrowBackIcon fontSize="large"/>
-                </IconButton>
-            </div>
-
-            <h2 className="cart-title">Cart</h2>
-
-            <div className="cart-item-container">
-                <div className="cart-image-title">
-                    <div className="cart-image-container">
-                        <img width="100%" src={one}/>
+          <div>
+                        <div>
+                        <IconButton
+                        onClick={ ()=>navigate('/home') }
+                        >
+                            <ArrowBackIcon fontSize="large"/>
+                        </IconButton>
                     </div>
-                    <h2 className="product-title">Adidas</h2>
-                </div>
 
-                <div>
-                    <p className="product-price">34444 ks</p>
-                </div>
+                        <h2 className="cart-title">Cart</h2>
 
-                <div>
-                    <IconButton>
-                        <HighlightOffIcon fontSize="large"/>
-                    </IconButton>
-                </div>
-            </div>
+                    { data.orderpost.map((eOrderItem) =>{
+                        return <Cartbody />
+                    })}
 
-            <div className="order-now-btn">
-                <Button variant="contained">
-                    Order Now
-                </Button>
-            </div>
+                   
+                </div>
         </div>
     )
 }

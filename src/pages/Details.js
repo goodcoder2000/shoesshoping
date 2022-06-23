@@ -9,12 +9,25 @@ import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const Details = () =>{
+    const { userId} = useParams();
+
     const [ count, setCount] = useState(1);
     const { id } = useParams();
     const { data, preLoading } = Usefetch("https://fakestoreapi.com/products/"+ id);
+    const [ orderConformed, setOrderconformed] = useState(false);
 
-    const dataRecieve = (image,title,price,id) =>{
-        console.log({image: image, title:  title, price: price, id: id})
+    const dataRecieve = (image,title,price,id,count) =>{
+        const dataTopostInorder = {image: image, title:  title, price: price, id: id, count: count, orderConformed: orderConformed};
+
+        fetch("http://localhost:3001/"+ userId,{
+            method: "PATCH",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify(dataTopostInorder)
+        })
+        .then(() =>{
+            console.log("successfully add cart item")
+        })
+        
     }
     return(
         <div>
@@ -65,7 +78,7 @@ const Details = () =>{
                             
                             <div>
                                 <Button style={{color: "red", borderColor:  "red"}} variant="outlined"
-                                onClick={ () => dataRecieve(data.image,data.title,data.price,data.id) }
+                                onClick={ () => dataRecieve(data.image,data.title,data.price,data.id,count) }
                                 >add to cart <AddShoppingCartIcon/></Button>
                             </div>
                     </div>
@@ -78,6 +91,9 @@ const Details = () =>{
                 <div className="preloading">
                <CircularProgress style={{color: "#6C757D"}}/>
             </div>
+            }
+            {
+                console.log(userId)
             }
         </div>
     );

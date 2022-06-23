@@ -8,26 +8,27 @@ import AlertBox from "../components/AlertBox";
 import { useNavigate } from "react-router-dom";
 
 const Login  = () =>{
-    const { data, preLoading} = Usefetch("http://localhost:3000/users");
+    const { data, preLoading} = Usefetch("http://localhost:3001/");
     const [ phoneno, setPhoneno] = useState(null);
     const [ password, setPassword] = useState(null);
     const [ errAlert, setErrAlert] = useState(false);
 
+
     const navigate = useNavigate();
 
     const loginCheck = () =>{
-        let findingUser = data.filter((user) => user.phone === phoneno && user.password === password);
-        if(findingUser.length === 0){
-            setErrAlert(true);
-            setTimeout(() =>{
-                setErrAlert(false);
-            }, 3000)
-            return
-        } else {
-            navigate(`/${phoneno}/home`)
+            let findingUser = data.filter((user) => user.phone === phoneno && user.password === password);
+            if(findingUser.length === 0){
+                setErrAlert(true);
+                setTimeout(() =>{
+                    setErrAlert(false);
+                }, 3000)
+                return
+            } else {
+                navigate(`/${phoneno}/${findingUser.map((item) =>item._id)}/home`) 
+            }
         }
-        console.log(findingUser.length);
-    }
+    
     return(
        <div>    
                { data&& <div className="login-box">

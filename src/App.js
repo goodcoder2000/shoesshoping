@@ -18,10 +18,10 @@ const App = () =>{
               <Route path="/" element={<Cover/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/signup" element={<Signup/>}/>
-              <Route exact path="/:userPhno/Home" element={<Home/>}/>
+              <Route exact path="/:userPhno/:userId/home" element={<Home/>}/>
               <Route path="/profile" element={<Profile/>}/>
-              <Route path="/cart" element={<Cart/>}/>
-              <Route path="/home/products/:id" element={<Details/>}/>
+              <Route path="/:userPhno/:userId/cart" element={<Cart/>}/>
+              <Route path="/:userPhno/:userId/home/products/:id" element={<Details/>}/>
               <Route path="*" element={<Notexits/>}/>
             </Routes>
       </div>

@@ -12,6 +12,8 @@ const Signup  = () =>{
     const [ password, setPassword] = useState(null);
     const [ rePassword, setrePassword] = useState(null);
     const [ address, setAddress] = useState(null);
+    const [ orderpost, setOrderpost] = useState([]);
+    
 
     const foruserName = (e) =>{
         setUsername(e.target.value);
@@ -33,8 +35,10 @@ const Signup  = () =>{
         if(password !== rePassword){
          alert("password need to the same")
         } else {
-            let data = {name :userName,phone : phoneno,password: password,rePassword : rePassword,address : address}
-            fetch("http://localhost:3000/users",{
+            let data = {name :userName,phone : phoneno,password: password,address : address, orderpost: orderpost}
+
+            
+            fetch("http://localhost:3001/",{
                 method: "POST",
                 headers:    {'Content-Type': 'application/json'},
                 body:   JSON.stringify(data)

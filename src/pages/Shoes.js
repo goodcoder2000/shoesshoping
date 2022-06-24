@@ -9,16 +9,11 @@ const Shoes = ({data}) =>{
 
                 {data?.map((eachp) =>{
                     return (
-                        <Grid key={eachp.id} item xl={2} lg={4} md={3} sm={4} xs={6}>
-                            <Eachp title={eachp.title} category={eachp.category} image={eachp.image} price={eachp.price} id={eachp.id}/>
+                        <Grid key={eachp._id} item xl={2} lg={4} md={3} sm={4} xs={6}>
+                            <Eachp title={eachp.title} category={eachp.category} image={eachp.image} price={eachp.price} id={eachp._id}/>
                         </Grid>
                     )
-                })}
-                {
-                    console.log(data)
-                }
-
-                
+                })}                
             </Grid>
         </div>
     )

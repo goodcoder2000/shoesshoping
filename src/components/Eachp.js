@@ -7,9 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const Eachp = ({image,price,id,title,category}) =>{
     return(
         
-        <div className="each-product"
-        
-        >
+        <div className="each-product">
             <div className="product-header">
                 <p>{category}</p>
                 <h4>{title}</h4>
@@ -27,7 +25,7 @@ const Eachp = ({image,price,id,title,category}) =>{
 
             <div className="eachp-footer">
                 <p className="eachp-price">{Math.floor(price *1859)} Ks</p>
-                <Link to={`products/${id}`}>
+                <Link to={`details/${id}`}>
                     <ArrowForwardIcon/>
                 </Link>
             </div>

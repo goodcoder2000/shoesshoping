@@ -7,19 +7,20 @@ import CircularProgress from '@mui/material/CircularProgress';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AlertBox from "../components/AlertBox";
 
 const Details = () =>{
     const { userId} = useParams();
 
     const [ count, setCount] = useState(1);
     const { id } = useParams();
-    const { data, preLoading } = Usefetch("https://fakestoreapi.com/products/"+ id);
-    const [ orderConformed, setOrderconformed] = useState(false);
+    const { data, preLoading } = Usefetch("http://localhost:3001/shoesmenu/"+ id);
+    const [ addtocartMessage, setAddtocartMessage] = useState(false);
 
-    const dataRecieve = (image,title,price,id,count) =>{
-        const dataTopostInorder = {image: image, title:  title, price: price, id: id, count: count, orderConformed: orderConformed};
+    const dataRecieve = (image,title,price,_id,count) =>{
+        const dataTopostInorder = {image: image, title:  title, price: price, _id: _id, count: count, orderConformed: false};
 
-        fetch("http://localhost:3001/push/"+userId,{
+        fetch("http://localhost:3001/users/"+userId+"/push",{
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(dataTopostInorder)
@@ -27,7 +28,10 @@ const Details = () =>{
         .then(() =>{
             console.log("successfully add cart item")
         })
-        
+        setAddtocartMessage(true);
+        setTimeout(() =>{
+            setAddtocartMessage(false);
+        }, 1500)
         
     }
     return(
@@ -45,11 +49,13 @@ const Details = () =>{
                         <h3>{data.title}</h3>
 
                         <h4>Description</h4>
-                        <p>{data.description}</p>
+                        <p>{data.discription}</p>
 
                         
                     </div>
-
+                    {
+                        addtocartMessage && <AlertBox severity="success" message="Added To Cart Successfully!!!"/>
+                    }
                     <div className="order-btn-session">
                             <div className="product-remove-add">
                                 <div>
@@ -66,7 +72,7 @@ const Details = () =>{
                                     </IconButton>
                                 </div>
                                 <div>
-                                    <input value={count} type="text" className="remove-add-textField"/>
+                                    <span  type="text" className="remove-add-textField">{count}</span>
                                 </div>
                                 <div>
                                     <IconButton
@@ -79,7 +85,7 @@ const Details = () =>{
                             
                             <div>
                                 <Button style={{color: "red", borderColor:  "red"}} variant="outlined"
-                                onClick={ () => dataRecieve(data.image,data.title,data.price,data.id,count) }
+                                onClick={ () => dataRecieve(data.image,data.title,data.price,data._id,count) }
                                 >add to cart <AddShoppingCartIcon/></Button>
                             </div>
                     </div>
@@ -93,9 +99,7 @@ const Details = () =>{
                <CircularProgress style={{color: "#6C757D"}}/>
             </div>
             }
-            {
-                console.log(userId)
-            }
+           
         </div>
     );
 }

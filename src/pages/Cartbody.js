@@ -1,9 +1,8 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { Button } from "@mui/material";
 
-const Cartbody = ({title, image, price, id,removeProduct}) =>{
+const Cartbody = ({title, image, price, _id,removeProduct}) =>{
 
     return(
         <>
@@ -21,7 +20,7 @@ const Cartbody = ({title, image, price, id,removeProduct}) =>{
 
                             <div>
                                 <IconButton
-                                 onClick={ () =>removeProduct(id) }
+                                 onClick={ () =>removeProduct(_id) }
                                 >
                                     <HighlightOffIcon fontSize="large"/>
                                 </IconButton>

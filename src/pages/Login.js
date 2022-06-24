@@ -8,7 +8,7 @@ import AlertBox from "../components/AlertBox";
 import { useNavigate } from "react-router-dom";
 
 const Login  = () =>{
-    const { data, preLoading} = Usefetch("http://localhost:3001/");
+    const { data, preLoading} = Usefetch("http://localhost:3001/users");
     const [ phoneno, setPhoneno] = useState(null);
     const [ password, setPassword] = useState(null);
     const [ errAlert, setErrAlert] = useState(false);
@@ -78,7 +78,7 @@ const Login  = () =>{
 }
         {/* password error Alert box */}
         {
-            errAlert && <AlertBox/>
+            errAlert && <AlertBox severity="error" message="Check your phone number or password!!!"/>
         }
        </div>
     )

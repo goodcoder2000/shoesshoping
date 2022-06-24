@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import IconButton from "@mui/material/IconButton";
-import one from "../images/1.png";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import Usefetch from "../components/Usefetch";
@@ -12,13 +10,13 @@ const Cart = () =>{
     const navigate = useNavigate();
     const { userId } = useParams();
 
-    const { data, preLoading } = Usefetch("http://localhost:3001/"+userId);
+    const { data, preLoading } = Usefetch("http://localhost:3001/users/"+userId);
 
-    const removeProduct = (id) =>{
-        fetch("http://localhost:3001/pull/"+userId,{
+    const removeProduct = (_id) =>{
+        fetch("http://localhost:3001/users/"+userId+"/pull",{
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
-            body: JSON.stringify({id})
+            body: JSON.stringify({_id})
         })
         .then(() =>{
             console.log('removed')
@@ -30,7 +28,7 @@ const Cart = () =>{
                 <div>
                     <div>
                         <IconButton
-                        onClick={ ()=>navigate('/home') }
+                        onClick={ ()=>navigate(`/${data.phone}/${data._id}/home`) }
                         >
                             <ArrowBackIcon fontSize="large"/>
                         </IconButton>
@@ -39,7 +37,7 @@ const Cart = () =>{
                     <h2 className="cart-title">Cart</h2>
 
                     { data && data.orderpost.map((eOrderItem) =>{
-                        return <Cartbody key={eOrderItem.id} title={eOrderItem.title} image={eOrderItem.image} price={eOrderItem.price} id={eOrderItem.id} removeProduct={removeProduct}/>
+                        return <Cartbody key={eOrderItem._id} title={eOrderItem.title} image={eOrderItem.image} price={eOrderItem.price} _id={eOrderItem._id} removeProduct={removeProduct}/>
                     })}
 
                     

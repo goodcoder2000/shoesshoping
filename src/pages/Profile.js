@@ -1,14 +1,18 @@
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import React from "react";
-import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useParams, useNavigate } from "react-router-dom";
+import Usefetch from "../components/Usefetch";
 
 const Profile = () =>{
     const navigate = useNavigate();
+    const { userId } = useParams();
+
+    const { data, preLoading } = Usefetch("http://localhost:3001/users/"+ userId);
     return(
-        <div className="profile">
+        <div>
+            { data && <div className="profile">
             <div>
                 <IconButton
                 onClick= {() =>navigate('/home')}
@@ -20,13 +24,14 @@ const Profile = () =>{
             <div className="profile-body">
                 
                 <div className="ava">L</div>
-                <h4 className="user-name">User - L Zay Ko Ko</h4>
+                <h4 className="user-name">User - {data.name}</h4>
 
-                <div className="user-id">User id - </div>
-                <div className="user-phone">Ph no - </div>
-                <div className="user-phone">Address - </div>
+                <div className="user-id">User id - {data._id}</div>
+                <div className="user-phone">Ph no - {data.phone}</div>
+                <div className="user-phone">Address -{data.address} </div>
                 <Button style={{margin: "10px"}} variant="outlined">Logout</Button>
             </div>
+        </div>}
         </div>
     )
 }

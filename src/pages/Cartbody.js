@@ -3,35 +3,31 @@ import IconButton from "@mui/material/IconButton";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { Button } from "@mui/material";
 
-const Cartbody = ({data}) =>{
+const Cartbody = ({title, image, price, id,removeProduct}) =>{
 
     return(
         <>
             <div className="cart-item-container">
                             <div className="cart-image-title">
                                 <div className="cart-image-container">
-                                    <img width="100%" />
+                                    <img width="100%" src={image} />
                                 </div>
-                                <h2 className="product-title">Adidas</h2>
+                                <h2 className="product-title">{title}</h2>
                             </div>
 
                             <div>
-                                <p className="product-price">34444 ks</p>
+                                <p className="product-price">{Math.floor(price *1859)} Ks</p>
                             </div>
 
                             <div>
-                                <IconButton>
+                                <IconButton
+                                 onClick={ () =>removeProduct(id) }
+                                >
                                     <HighlightOffIcon fontSize="large"/>
                                 </IconButton>
                             </div>
             </div>
 
-                        <div className="order-now-btn">
-                            <Button variant="contained">
-                                Order Now
-                            </Button>
-                        </div>
-                        {data && console.log(data.orderpost)}
         </>
     )
 }

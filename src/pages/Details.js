@@ -19,7 +19,7 @@ const Details = () =>{
     const dataRecieve = (image,title,price,id,count) =>{
         const dataTopostInorder = {image: image, title:  title, price: price, id: id, count: count, orderConformed: orderConformed};
 
-        fetch("http://localhost:3001/"+ userId,{
+        fetch("http://localhost:3001/push/"+userId,{
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(dataTopostInorder)
@@ -27,6 +27,7 @@ const Details = () =>{
         .then(() =>{
             console.log("successfully add cart item")
         })
+        
         
     }
     return(

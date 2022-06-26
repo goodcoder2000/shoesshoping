@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const Eachp = ({image,price,id,title,category}) =>{
+const Eachp = ({img,price,id,title,category}) =>{
     return(
         
         <div className="each-product">
@@ -20,7 +20,7 @@ const Eachp = ({image,price,id,title,category}) =>{
             </div>
             
             <div className="product-img-container">
-                <img className="img-contorl" src={image}/>
+                <img className="img-contorl" src={img}/>
             </div>
 
             <div className="eachp-footer">

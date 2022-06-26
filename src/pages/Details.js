@@ -14,13 +14,13 @@ const Details = () =>{
 
     const [ count, setCount] = useState(1);
     const { id } = useParams();
-    const { data, preLoading } = Usefetch("http://localhost:3001/shoesmenu/"+ id);
+    const { data, preLoading } = Usefetch("https://api-end.onrender.com/shoesmenu/"+ id);
     const [ addtocartMessage, setAddtocartMessage] = useState(false);
 
-    const dataRecieve = (image,title,price,_id,count) =>{
-        const dataTopostInorder = {image: image, title:  title, price: price, _id: _id, count: count, orderConformed: false};
+    const dataRecieve = (img,title,price,_id,count) =>{
+        const dataTopostInorder = {img: img, title:  title, price: price, _id: _id, count: count, orderConformed: false};
 
-        fetch("http://localhost:3001/users/"+userId+"/push",{
+        fetch("https://api-end.onrender.com/users/"+userId+"/push",{
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(dataTopostInorder)
@@ -42,7 +42,7 @@ const Details = () =>{
             <div className="details-container">
                
                     <div className="details-image-container">
-                        <img width="100%" height="100%" src={data.image}/>
+                        <img width="100%" height="100%" src={data.img}/>
                     </div>
 
                     <div className="product-details">
@@ -85,7 +85,7 @@ const Details = () =>{
                             
                             <div>
                                 <Button style={{color: "red", borderColor:  "red"}} variant="outlined"
-                                onClick={ () => dataRecieve(data.image,data.title,data.price,data._id,count) }
+                                onClick={ () => dataRecieve(data.img,data.title,data.price,data._id,count) }
                                 >add to cart <AddShoppingCartIcon/></Button>
                             </div>
                     </div>

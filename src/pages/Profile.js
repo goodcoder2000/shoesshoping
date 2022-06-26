@@ -9,13 +9,13 @@ const Profile = () =>{
     const navigate = useNavigate();
     const { userId } = useParams();
 
-    const { data, preLoading } = Usefetch("http://localhost:3001/users/"+ userId);
+    const { data, preLoading } = Usefetch("https://api-end.onrender.com/users/"+ userId);
     return(
         <div>
             { data && <div className="profile">
             <div>
                 <IconButton
-                onClick= {() =>navigate('/home')}
+                onClick= {() =>navigate(`/${data.phone}/${data._id}/home`)}
                 >
                     <ArrowBackIcon/>
                 </IconButton>
@@ -23,13 +23,15 @@ const Profile = () =>{
 
             <div className="profile-body">
                 
-                <div className="ava">L</div>
+                <div className="ava">{data.name[0].toUpperCase()}</div>
                 <h4 className="user-name">User - {data.name}</h4>
 
                 <div className="user-id">User id - {data._id}</div>
                 <div className="user-phone">Ph no - {data.phone}</div>
                 <div className="user-phone">Address -{data.address} </div>
-                <Button style={{margin: "10px"}} variant="outlined">Logout</Button>
+                <Button style={{margin: "10px"}} variant="outlined"
+                onClick={ () =>navigate('/login')}
+                >Logout</Button>
             </div>
         </div>}
         </div>

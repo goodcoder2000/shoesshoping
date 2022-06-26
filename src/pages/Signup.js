@@ -38,7 +38,7 @@ const Signup  = () =>{
             let data = {name :userName,phone : phoneno,password: password,address : address, orderpost: orderpost}
 
             
-            fetch("http://localhost:3001/",{
+            fetch("https://api-end.onrender.com/users",{
                 method: "POST",
                 headers:    {'Content-Type': 'application/json'},
                 body:   JSON.stringify(data)

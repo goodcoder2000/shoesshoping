@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Nav = () =>{
     const {userPhno, userId} = useParams();
-    const {data} = Usefetch("http://localhost:3001/users/"+userId);
+    const {data} = Usefetch("https://api-end.onrender.com/users/"+userId);
     const navigate = useNavigate();
     return(
             <div className="nav">

@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Home = () =>{
     
-    const { data, preLoading } = Usefetch("http://localhost:3001/shoesmenu/");
+    const { data, preLoading } = Usefetch("https://api-end.onrender.com/shoesmenu");
 
     
     return(

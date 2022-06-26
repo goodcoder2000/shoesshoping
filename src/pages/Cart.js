@@ -10,7 +10,7 @@ const Cart = () =>{
     const navigate = useNavigate();
     const { userId } = useParams();
 
-    const { data, preLoading } = Usefetch("http://localhost:3001/users/"+userId);
+    const { data, preLoading } = Usefetch("https://api-end.onrender.com/users/"+userId);
 
     const removeProduct = (_id) =>{
         fetch("http://localhost:3001/users/"+userId+"/pull",{
@@ -37,7 +37,7 @@ const Cart = () =>{
                     <h2 className="cart-title">Cart</h2>
 
                     { data && data.orderpost.map((eOrderItem) =>{
-                        return <Cartbody key={eOrderItem._id} title={eOrderItem.title} image={eOrderItem.image} price={eOrderItem.price} _id={eOrderItem._id} removeProduct={removeProduct}/>
+                        return <Cartbody key={eOrderItem._id} title={eOrderItem.title} img={eOrderItem.img} price={eOrderItem.price} _id={eOrderItem._id} removeProduct={removeProduct}/>
                     })}
 
                     

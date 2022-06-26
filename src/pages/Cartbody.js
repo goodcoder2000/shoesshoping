@@ -2,14 +2,14 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-const Cartbody = ({title, image, price, _id,removeProduct}) =>{
+const Cartbody = ({title, img, price, _id,removeProduct}) =>{
 
     return(
         <>
             <div className="cart-item-container">
                             <div className="cart-image-title">
                                 <div className="cart-image-container">
-                                    <img width="100%" src={image} />
+                                    <img width="100%" src={img} />
                                 </div>
                                 <h2 className="product-title">{title}</h2>
                             </div>

@@ -26,7 +26,7 @@ const Left = () =>{
 
                             <Button variant="contained"
                                     style={{borderRadius:   "2px", marginTop: "20px", backgroundColor:  '#9F0124', padding: "14px"}}
-                                    onClick={ () => navigate("/home")}
+                                    onClick={ () => navigate("/login")}
                                     >SHOP NOW
                                     <ArrowRightAltIcon/>
                             </Button>

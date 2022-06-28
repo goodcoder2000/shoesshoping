@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import Usefetch from "../components/Usefetch";
 import Cartbody from "./Cartbody";
+import AlertBox from "../components/AlertBox";
 
 const Cart = () =>{
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Cart = () =>{
     const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/users/"+userId);
 
     const [ addValue, setAddvalue ] = useState([]);
-
+    const [ orderSuccess, setOrderSuccess] = useState(true);
     
     
     const add = (_id, count, price) =>{
@@ -30,10 +31,11 @@ const Cart = () =>{
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
-            body:   JSON.stringify()
+            body:   JSON.stringify(addValue)
         })
         .then(() =>{
             console.log('success')
+            setOrderSuccess(true)
         })
     }
 
@@ -74,12 +76,17 @@ const Cart = () =>{
 
                     </div>
                     <div className="order-now-btn">
+                            { orderSuccess && <AlertBox message="Order Success"/>}
                             <Button variant="contained"
                             onClick={ orderConform }
                             >
                                 Order Now
                             </Button>
                     </div>
+                </div>
+
+                {/* order success message */}
+                <div>
                 </div>
         </div>
     )

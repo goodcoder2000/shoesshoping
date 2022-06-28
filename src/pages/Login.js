@@ -8,10 +8,10 @@ import AlertBox from "../components/AlertBox";
 import { useNavigate } from "react-router-dom";
 
 const Login  = () =>{
-    const { data, preLoading} = Usefetch("https://api-shoes-testing.onrender.com/users");
+    const { data, preLoading} = Usefetch("https://api-shoes-testing.onrender.com/users/");
     const [ phoneno, setPhoneno] = useState(null);
     const [ password, setPassword] = useState(null);
-    const [ errAlert, setErrAlert] = useState(false);
+    const [ errAlert, setErrAlert] = useState(true);
 
 
     const navigate = useNavigate();

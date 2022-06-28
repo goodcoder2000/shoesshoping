@@ -19,11 +19,7 @@ const Cbody = () =>{
 
             </Grid>
 
-            {/* <img src={cvshoes} className="CImg"/>
-            <Typography variant="p" className="backgroundText">
-                S     A     M     O     A
-            </Typography>
-    */}
+        
         </div>
     )
 }

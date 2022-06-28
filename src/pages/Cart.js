@@ -10,38 +10,27 @@ const Cart = () =>{
     const navigate = useNavigate();
     const { userId } = useParams();
     const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/users/"+userId);
-    const [ displayforPlus, setDisplayPlus] = useState('block');
-    const [ displayforminus, setDisplayminus] = useState('none');
+
+    const [ addValue, setAddvalue ] = useState([]);
 
   
     
-    let inCheckData = [];
+ 
     const add = (_id, count, price) =>{
-        inCheckData.push({_id, count, price});
-        console.log(inCheckData)
-    }
-    
-    let removeData = [];
-    const remove = (_id) =>{
-        removeData = inCheckData.filter((eachId) => eachId._id !== _id);
-        console.log(removeData)
+        setAddvalue([...addValue,{_id: _id}])
     }
 
-    let finalOrder = [];
-    if(removeData.length === 0){
-        finalOrder = inCheckData;
-    } else{
-        finalOrder = removeData;
+    const remove = (_id) =>{
+        setAddvalue(addValue.filter((item) => item._id !== _id))
     }
+    
+    
     const orderConform = () =>{   
-        if(finalOrder.length === 0){
-            console.log('no item here')
-            return;
-        }
+       
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
-            body:   JSON.stringify(finalOrder)
+            body:   JSON.stringify()
         })
         .then(() =>{
             console.log('success')
@@ -81,7 +70,15 @@ const Cart = () =>{
                     }
 
                     <div>
-                        <h3>Total - </h3>
+                        {
+                            addValue.map((eachAdd) =>{
+                                return(
+                                    <div key={eachAdd._id}>
+                                        <h4>{eachAdd._id}</h4>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                     <div className="order-now-btn">
                             <Button variant="contained"

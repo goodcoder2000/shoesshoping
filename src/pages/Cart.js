@@ -13,11 +13,11 @@ const Cart = () =>{
 
     const [ addValue, setAddvalue ] = useState([]);
 
-  
     
- 
+    
     const add = (_id, count, price) =>{
-        setAddvalue([...addValue,{_id: _id}])
+        setAddvalue([...addValue,{_id: _id, count: count, price: price}])
+        
     }
 
     const remove = (_id) =>{
@@ -50,7 +50,7 @@ const Cart = () =>{
         })
     }
 
-    
+    let finalsumResult = addValue.map((eachorder) => eachorder.price* eachorder.count)
     return(
         <div className="cart">
                 <div>
@@ -70,15 +70,8 @@ const Cart = () =>{
                     }
 
                     <div>
-                        {
-                            addValue.map((eachAdd) =>{
-                                return(
-                                    <div key={eachAdd._id}>
-                                        <h4>{eachAdd._id}</h4>
-                                    </div>
-                                )
-                            })
-                        }
+                        <h2>Total Price - {finalsumResult.reduce((partialSum, a) => partialSum + a, 0)} Dollars </h2>
+
                     </div>
                     <div className="order-now-btn">
                             <Button variant="contained"

@@ -57,6 +57,7 @@ const Cart = () =>{
         })
         .then(() =>{
             console.log('delete success')
+            window.location.reload();
         })
     }
 

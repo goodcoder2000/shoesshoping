@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import Usefetch from "../components/Usefetch";
 import Cartbody from "./Cartbody";
 import AlertBox from "../components/AlertBox";
+import * as dayjs from 'dayjs'
 
 const Cart = () =>{
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Cart = () =>{
     const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/users/"+userId);
 
     const [ addValue, setAddvalue ] = useState([]);
-    const [ orderSuccess, setOrderSuccess] = useState(true);
+    const [ orderSuccess, setOrderSuccess] = useState(false);
     
     
     const add = (_id, count, price) =>{
@@ -25,18 +26,22 @@ const Cart = () =>{
         setAddvalue(addValue.filter((item) => item._id !== _id))
     }
     
-    
+    let sending;
     const orderConform = () =>{   
        
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
-            body:   JSON.stringify(addValue)
+            body:   JSON.stringify([...addValue,{time: dayjs().format('MMM D YYYY h:mm:ss A')}])
         })
         .then(() =>{
             console.log('success')
             setOrderSuccess(true)
+            setTimeout(() =>{
+                setOrderSuccess(false)
+            }, 2000)
         })
+        console.log(addValue)
     }
 
   

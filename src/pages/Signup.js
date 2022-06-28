@@ -34,7 +34,7 @@ const Signup  = () =>{
         if(password !== rePassword){
          alert("password need to the same")
         } else {
-            let data = {name :userName,phone : phoneno,password: password,address : address, cartItems: [], orderItems: []}
+            let data = {name :userName,phone : phoneno,password: password,address : address, cartItems: [], orderConformed: []}
 
             
             fetch("https://api-shoes-testing.onrender.com/users",{

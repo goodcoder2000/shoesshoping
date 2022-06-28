@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 
 const AlertBox = ({severity, message, position}) => {
   return (
-    <Stack style={{position: position, top: "10px", marginBottom: "10px"}} sx={{ width: '100%' }} spacing={2}>
+    <Stack style={{position: position, top: "10px",  marginBottom: "10px"}} sx={{ width: '100%' }} spacing={2}>
       <Alert variant="filled" severity={severity}>{message}</Alert>
     </Stack>
   );

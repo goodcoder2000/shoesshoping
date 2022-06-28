@@ -11,7 +11,7 @@ const Login  = () =>{
     const { data, preLoading} = Usefetch("https://api-shoes-testing.onrender.com/users/");
     const [ phoneno, setPhoneno] = useState(null);
     const [ password, setPassword] = useState(null);
-    const [ errAlert, setErrAlert] = useState(true);
+    const [ errAlert, setErrAlert] = useState(false);
 
 
     const navigate = useNavigate();
@@ -78,7 +78,7 @@ const Login  = () =>{
 }
         {/* password error Alert box */}
         {
-            errAlert && <AlertBox severity="error" message="Check your phone number or password!!!"/>
+            errAlert && <AlertBox severity="error" position="absolute" message="Check your phone number or password!!!"/>
         }
        </div>
     )

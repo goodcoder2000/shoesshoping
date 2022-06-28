@@ -2,6 +2,7 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Cartbody = ({title, _id, img, price, add, remove, count, deleteHandler}) =>{
 
@@ -28,7 +29,9 @@ const Cartbody = ({title, _id, img, price, add, remove, count, deleteHandler}) =
                             </div>
 
                             <div >
-                              <button onClick={ () =>deleteHandler(_id)}>delete</button>
+                              <IconButton onClick={ () =>deleteHandler(_id)}>
+                                  <DeleteForeverIcon fontSize="large"/>
+                              </IconButton>
                             </div>
         
         

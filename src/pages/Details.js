@@ -15,7 +15,7 @@ const Details = () =>{
     const [ count, setCount] = useState(1);
     const { id } = useParams();
     const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/shoesmenu/"+ id);
-    const [ addtocartMessage, setAddtocartMessage] = useState(true);
+    const [ addtocartMessage, setAddtocartMessage] = useState(false);
 
     const dataRecieve = (img,title,price,_id,count) =>{
         const dataTopostInorder = {img: img, title:  title, price: price, _id: _id, count: count};

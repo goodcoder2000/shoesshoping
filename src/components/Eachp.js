@@ -24,7 +24,7 @@ const Eachp = ({img,price,id,title,category}) =>{
             </div>
 
             <div className="eachp-footer">
-                <p className="eachp-price">{Math.floor(price *1859)} Ks</p>
+                <p className="eachp-price">{price} Dollars</p>
                 <Link to={`details/${id}`}>
                     <ArrowForwardIcon/>
                 </Link>

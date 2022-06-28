@@ -9,7 +9,7 @@ const Profile = () =>{
     const navigate = useNavigate();
     const { userId } = useParams();
 
-    const { data, preLoading } = Usefetch("https://api-end.onrender.com/users/"+ userId);
+    const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/users/"+ userId);
     return(
         <div>
             { data && <div className="profile">

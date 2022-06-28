@@ -12,7 +12,6 @@ const Signup  = () =>{
     const [ password, setPassword] = useState(null);
     const [ rePassword, setrePassword] = useState(null);
     const [ address, setAddress] = useState(null);
-    const [ orderpost, setOrderpost] = useState([]);
     
 
     const foruserName = (e) =>{
@@ -35,10 +34,10 @@ const Signup  = () =>{
         if(password !== rePassword){
          alert("password need to the same")
         } else {
-            let data = {name :userName,phone : phoneno,password: password,address : address, orderpost: orderpost}
+            let data = {name :userName,phone : phoneno,password: password,address : address, cartItems: [], orderItems: []}
 
             
-            fetch("https://api-end.onrender.com/users",{
+            fetch("https://api-shoes-testing.onrender.com/users",{
                 method: "POST",
                 headers:    {'Content-Type': 'application/json'},
                 body:   JSON.stringify(data)

@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Nav = () =>{
     const {userPhno, userId} = useParams();
-    const {data} = Usefetch("https://api-end.onrender.com/users/"+userId);
+    const {data} = Usefetch("https://api-shoes-testing.onrender.com/users/"+userId);
     const navigate = useNavigate();
     return(
             <div className="nav">
@@ -40,7 +40,7 @@ const Nav = () =>{
                         data&& <IconButton aria-label="cart"
                                 onClick={() =>navigate(`/${userPhno}/${userId}/cart`)}
                                 >
-                            <StyledBadge badgeContent={data.orderpost.length} color="error">
+                            <StyledBadge badgeContent={data.cartItems.length} color="error">
                                 <ShoppingCartIcon fontSize="large"
                                 style={{color: "#DEE2E6"}}
                                 />

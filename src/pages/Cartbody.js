@@ -1,8 +1,9 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-const Cartbody = ({title, img, price, _id,removeProduct}) =>{
+const Cartbody = ({title, _id, img, price, add, remove, count, deleteHandler}) =>{
 
     return(
         <>
@@ -15,16 +16,22 @@ const Cartbody = ({title, img, price, _id,removeProduct}) =>{
                             </div>
 
                             <div>
-                                <p className="product-price">{Math.floor(price *1859)} Ks</p>
+                                <p className="product-price">{count} X {price} = {price *count} Dollars</p>
                             </div>
 
-                            <div>
-                                <IconButton
-                                 onClick={ () =>removeProduct(_id) }
-                                >
-                                    <HighlightOffIcon fontSize="large"/>
-                                </IconButton>
+                            <div >
+                              <button onClick={ () =>add(_id, count, price)}>add</button>
                             </div>
+
+                            <div >
+                              <button onClick={ () =>remove(_id)}>remove</button>
+                            </div>
+
+                            <div >
+                              <button onClick={ () =>deleteHandler(_id)}>delete</button>
+                            </div>
+        
+        
             </div>
 
         </>

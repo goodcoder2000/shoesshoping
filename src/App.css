@@ -304,6 +304,12 @@ border-radius: 8px;
   margin: 15px 0;
 }
 
+.order-div{
+  background-color: #63AAD4;
+  padding: 10px 14px;
+  margin: 10px auto;
+}
+
 
 @media (max-width: 1200px) {
   .each-product{

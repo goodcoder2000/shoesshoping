@@ -21,7 +21,7 @@ const Cartbody = ({title, _id, img, price, add, remove, count, deleteHandler}) =
 
 
                             <div>
-                                <SwitchBtn add={add} remove={remove} _id={_id} count={count} price={price} />
+                                <SwitchBtn add={add} remove={remove} _id={_id} count={count} price={price} title={title} img={img} />
                             </div>
 
                             <div >

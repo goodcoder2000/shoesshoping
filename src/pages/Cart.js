@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import IconButton from "@mui/material/IconButton";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -18,8 +18,8 @@ const Cart = () =>{
     const [ orderfail, setOrderfail] = useState(false);
 
     
-    const add = (_id, count, price) =>{
-        setAddvalue([...addValue,{_id: _id, count: count, price: price,time: dayjs().format('MMM D YYYY h:mm:ss A')}])
+    const add = (_id, count, price, title, img) =>{
+        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title,img: img,time: dayjs().format('MMM D YYYY h:mm:ss A')}])
     }
 
     const remove = (_id) =>{
@@ -47,7 +47,6 @@ const Cart = () =>{
             }, 2000)
         })
     }
-
   
     const deleteHandler = (_id) =>{
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/pull`,{
@@ -98,8 +97,6 @@ const Cart = () =>{
 
                     { data && <Link to={`/${data.phone}/${data._id}/inorderitems`} >Ordered Products</Link>}
                 </div>
-
-           
         </div>
     )
 }

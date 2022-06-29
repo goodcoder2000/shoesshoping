@@ -9,6 +9,7 @@ import Details from "./pages/Details";
 import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 import Notexits from "./pages/Notexits";
+import OrderedItems from "./pages/OrderedItems";
 
 const App = () =>{
   return(
@@ -22,6 +23,7 @@ const App = () =>{
               <Route path="/profile/:userId" element={<Profile/>}/>
               <Route path="/:userPhno/:userId/cart" element={<Cart/>}/>
               <Route path="/:userPhno/:userId/home/details/:id" element={<Details/>}/>
+              <Route path="/:userPhno/:userId/inorderitems" element={<OrderedItems/>}/>
               <Route path="*" element={<Notexits/>}/>
             </Routes>
       </div>

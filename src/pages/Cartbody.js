@@ -1,7 +1,5 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import SwitchBtn from "../components/SwitchBtn";
 
@@ -21,16 +19,9 @@ const Cartbody = ({title, _id, img, price, add, remove, count, deleteHandler}) =
                                 <p className="product-price">{count} X {price} = {price *count} Dollars</p>
                             </div>
 
-                            {/* <div >
-                              <button onClick={ () =>add(_id, count, price)}>add</button>
-                            </div>
 
                             <div>
-                              <button onClick={ () =>remove(_id)}>remove</button>
-                            </div> */}
-
-                            <div>
-                                <SwitchBtn add={add} remove={remove} _id={_id} count={count} price={price}/>
+                                <SwitchBtn add={add} remove={remove} _id={_id} count={count} price={price} />
                             </div>
 
                             <div >

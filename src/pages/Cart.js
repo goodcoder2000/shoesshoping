@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import IconButton from "@mui/material/IconButton";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import Usefetch from "../components/Usefetch";
 import Cartbody from "./Cartbody";
@@ -15,24 +15,29 @@ const Cart = () =>{
 
     const [ addValue, setAddvalue ] = useState([]);
     const [ orderSuccess, setOrderSuccess] = useState(false);
-    
+    const [ orderfail, setOrderfail] = useState(false);
+
     
     const add = (_id, count, price) =>{
-        setAddvalue([...addValue,{_id: _id, count: count, price: price}])
-        
+        setAddvalue([...addValue,{_id: _id, count: count, price: price,time: dayjs().format('MMM D YYYY h:mm:ss A')}])
     }
 
     const remove = (_id) =>{
         setAddvalue(addValue.filter((item) => item._id !== _id))
     }
     
-    let sending;
     const orderConform = () =>{   
-       
+        if(addValue.length ===0){
+            setOrderfail(true);
+            setTimeout(() =>{
+                setOrderfail(false);
+            }, 2000)
+            return;
+        }
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
-            body:   JSON.stringify([...addValue,{time: dayjs().format('MMM D YYYY h:mm:ss A')}])
+            body:   JSON.stringify(addValue)
         })
         .then(() =>{
             console.log('success')
@@ -41,7 +46,6 @@ const Cart = () =>{
                 setOrderSuccess(false)
             }, 2000)
         })
-        console.log(addValue)
     }
 
   
@@ -57,6 +61,9 @@ const Cart = () =>{
         })
     }
 
+    setInterval(() => {
+        window.location.reload()
+    }, 60000);
     let finalsumResult = addValue.map((eachorder) => eachorder.price* eachorder.count)
     return(
         <div className="cart">
@@ -70,7 +77,6 @@ const Cart = () =>{
                     </div>
 
                     <h2 className="cart-title">Cart</h2>
-
                     { data && data.cartItems.map((eOrderItem) =>{
                         return <Cartbody key={eOrderItem._id} title={eOrderItem.title} img={eOrderItem.img} price={eOrderItem.price} _id={eOrderItem._id} add={add} remove={remove} count={eOrderItem.count} deleteHandler={deleteHandler}/>
                     })
@@ -81,18 +87,19 @@ const Cart = () =>{
 
                     </div>
                     <div className="order-now-btn">
-                            { orderSuccess && <AlertBox message="Order Success"/>}
+                            { orderSuccess && <AlertBox message="Order Success" severity="success"/>}
+                            { orderfail && <AlertBox message="Please Select Product!!!" severity="error"/>}
                             <Button variant="contained"
                             onClick={ orderConform }
                             >
                                 Order Now
                             </Button>
                     </div>
+
+                    { data && <Link to={`/${data.phone}/${data._id}/inorderitems`} >Ordered Products</Link>}
                 </div>
 
-                {/* order success message */}
-                <div>
-                </div>
+           
         </div>
     )
 }

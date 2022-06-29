@@ -278,10 +278,12 @@ border-radius: 8px;
   padding: 12px;
   margin: 30px auto;
 }
-.cart-title{
+.cart-title, .inprocess-item{
+  text-align: center;
   margin: 15px 0;
 }
-.cart-item-container{
+.cart-item-container,
+.in-order{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -301,6 +303,7 @@ border-radius: 8px;
 .order-now-btn{
   margin: 15px 0;
 }
+
 
 @media (max-width: 1200px) {
   .each-product{

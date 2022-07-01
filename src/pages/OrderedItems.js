@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import InOrder from "../components/InOrder";
 import OrderDiv from "../components/OrderDiv";
 
 const OrderedItems = () =>{
@@ -23,8 +22,7 @@ const OrderedItems = () =>{
             <h2 className="inprocess-item">In ordered Items</h2>
 
                     <div>
-                        { data?.orderConformed.map((eachOrderItem, index) => <OrderDiv key={index} eachOrderItem={eachOrderItem}/>).reverse()}
-                        {console.log(data)}
+                        { data?.orderConformed.map((eachOrderItem, index) => <OrderDiv key={index} title={eachOrderItem.title} img={eachOrderItem.img} time={eachOrderItem.time} />).reverse()}
                     </div>
         </div>
     )

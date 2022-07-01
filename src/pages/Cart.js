@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import Usefetch from "../components/Usefetch";
 import Cartbody from "./Cartbody";
 import AlertBox from "../components/AlertBox";
-import * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs';
 
 const Cart = () =>{
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Cart = () =>{
 
     
     const add = (_id, count, price, title, img) =>{
-        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title,img: img,time: dayjs().format('MMM D YYYY h:mm:ss A')}])
+        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title,img: img,time: dayjs().format('YYYY M D H:mm:ss')}])
     }
 
     const remove = (_id) =>{
@@ -27,6 +27,7 @@ const Cart = () =>{
     }
     
     const orderConform = () =>{   
+        
         if(addValue.length ===0){
             setOrderfail(true);
             setTimeout(() =>{
@@ -34,10 +35,14 @@ const Cart = () =>{
             }, 2000)
             return;
         }
+
+        for(let i=0; i<addValue.length; i++){
+            console.log(addValue[i])
+
         fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
-            body:   JSON.stringify(addValue)
+            body:   JSON.stringify(addValue[i])
         })
         .then(() =>{
             console.log('success')
@@ -46,6 +51,9 @@ const Cart = () =>{
                 setOrderSuccess(false)
             }, 2000)
         })
+        .catch(err =>console.log(err))
+        }
+        
     }
   
     const deleteHandler = (_id) =>{

@@ -4,6 +4,7 @@ import React from "react";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useParams, useNavigate } from "react-router-dom";
 import Usefetch from "../components/Usefetch";
+import Nav from "../components/Nav";
 
 const Profile = () =>{
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Profile = () =>{
     const { data, preLoading } = Usefetch("https://api-shoes-testing.onrender.com/users/"+ userId);
     return(
         <div>
+            <Nav/>
             { data && <div className="profile">
             <div>
                 <IconButton

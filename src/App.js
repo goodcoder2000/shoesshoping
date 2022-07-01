@@ -10,6 +10,10 @@ import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 import Notexits from "./pages/Notexits";
 import OrderedItems from "./pages/OrderedItems";
+import AdminLogin from "./pages/AdminLogin";
+import NewPost from "./pages/NewPost";
+import OrderedPage from "./pages/OrderedPage";
+import Current from "./pages/Current";
 
 const App = () =>{
   return(
@@ -18,6 +22,10 @@ const App = () =>{
             <Routes>
               <Route path="/" element={<Cover/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/adminlogin" element={<AdminLogin/>}/>
+              <Route path="/newpost" element={<NewPost/>}/>
+              <Route path="/orderedpage" element={<OrderedPage/>}/>
+              <Route path="/current" element={<Current/>}/>
               <Route path="/signup" element={<Signup/>}/>
               <Route exact path="/:userPhno/:userId/home" element={<Home/>}/>
               <Route path="/profile/:userId" element={<Profile/>}/>

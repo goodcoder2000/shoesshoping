@@ -356,6 +356,17 @@ border-radius: 8px;
   border-radius: 4px;
   margin: 5px 0;
 }
+.admin-ordered-see{
+  width: 10%;
+}
+.admin-ordered-each-person{
+  background-color: lightgray;
+  padding: 10px;
+  margin: 10px 0;
+}
+.Eorder{
+  background-color: #63AAD4;
+}
 @media (max-width: 1200px) {
   .each-product{
     height: 200px;

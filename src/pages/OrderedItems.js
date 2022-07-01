@@ -22,7 +22,7 @@ const OrderedItems = () =>{
             <h2 className="inprocess-item">In ordered Items</h2>
 
                     <div>
-                        { data?.orderConformed.map((eachOrderItem, index) => <OrderDiv key={index} title={eachOrderItem.title} img={eachOrderItem.img} time={eachOrderItem.time} />).reverse()}
+                        { data?.orderConformed.map((eachOrderItem, index) => <OrderDiv key={index} title={eachOrderItem.title} img={eachOrderItem.img} date={eachOrderItem.date} time={eachOrderItem.time} />).reverse()}
                     </div>
         </div>
     )

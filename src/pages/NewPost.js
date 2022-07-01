@@ -38,7 +38,7 @@ const NewPost  = () =>{
                 
                 <div style={{textAlign: "center"}}>
                     <TextField label="price"  margin="dense" id="for pirce"
-                    onChange= { (e) =>setPrice(e.target.value) }
+                    onChange= { (e) =>setPrice(parseInt(e.target.value)) }
                     />
                 </div>
 

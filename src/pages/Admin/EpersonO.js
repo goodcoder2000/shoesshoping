@@ -1,9 +1,10 @@
 import React from "react";
 
-const EpersonO = ({title, count, img, price, time}) =>{
+const EpersonO = ({name,title, count, img, price, time}) =>{
     return(
         <div className="Eorder">
             <div className="admin-current-title">
+                <h2>{name}</h2>
                 <h3>{title}</h3>
                 <h3>count = {count}</h3>
                 <h4>${price}</h4>

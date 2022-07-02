@@ -19,7 +19,7 @@ const Cart = () =>{
 
     
     const add = (_id, count, price, title, img) =>{
-        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title, time: dayjs().format('h:m A'), img: img, date: dayjs().format('DD/MM/YYYY')}])
+        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title, time: dayjs().format('H:m'), img: img, date: dayjs().format('DD/MM/YYYY')}])
     }
 
     const remove = (_id) =>{

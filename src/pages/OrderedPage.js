@@ -10,7 +10,7 @@ const OrderedPage = () =>{
         <div>
             <AdminNav/>
             <div className="orderpage">
-                { data?.filter((ex) => ex.orderConformed.length !==0).map((ep, index) => <SortTime key={ep._id} name={ep.name} orderConformed={ep.orderConformed} index={index}/>)}
+                { data?.filter((ex) => ex.orderConformed.length !==0 ).map((ep, index) => <SortTime key={ep._id} name={ep.name} orderConformed={ep.orderConformed} index={index}/>)}
             </div>
         </div>
     )

@@ -20,7 +20,7 @@ const Details = () =>{
     const dataRecieve = (img,title,price,_id,count) =>{
         const dataTopostInorder = {img: img, title:  title, price: price, _id: _id, count: count};
 
-        fetch("https://api-shoes-testing.onrender.com/users/"+userId+"/push",{
+        fetch("https://api-shoes-testing.onrender.com/users/"+userId+"/push/indexpoint",{
             method: "PATCH",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(dataTopostInorder)

@@ -365,7 +365,7 @@ border-radius: 8px;
   margin: 10px 0;
 }
 .Eorder{
-  background-color: #63AAD4;
+  background-color: lightgray;
 }
 @media (max-width: 1200px) {
   .each-product{

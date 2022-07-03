@@ -19,7 +19,7 @@ const Cart = () =>{
 
     
     const add = (_id, count, price, title, img) =>{
-        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title, time: dayjs().format('HHmm'), img: img, date: dayjs().format('DD/MM/YYYY')}])
+        setAddvalue([...addValue,{_id: _id, count: count, price: price,title: title, time: dayjs().format('HHmm'), img: img, date: dayjs().format('DD/MM/YYYY'), delivered: false}])
     }
 
     const remove = (_id) =>{
@@ -39,7 +39,7 @@ const Cart = () =>{
         for(let i=0; i<addValue.length; i++){
             console.log(addValue[i])
 
-        fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered`,{
+        fetch(`https://api-shoes-testing.onrender.com/users/${userId}/ordered/indexpoint`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
             body:   JSON.stringify(addValue[i])
@@ -57,7 +57,7 @@ const Cart = () =>{
     }
   
     const deleteHandler = (_id) =>{
-        fetch(`https://api-shoes-testing.onrender.com/users/${userId}/pull`,{
+        fetch(`https://api-shoes-testing.onrender.com/users/${userId}/pull/indexpoint`,{
             method: "PATCH",
             headers:    {"Content-type": "application/json"},
             body:   JSON.stringify({_id})

@@ -1,8 +1,9 @@
 import React from "react";
 
-const InOrder = ({date, time, title, img}) =>{
+const InOrder = ({date, time, title, img, delivered}) =>{
     return(
         <div className="in-order">
+            { delivered===false? <h4>Order in process</h4>:<p>Delivered</p>}
             <h3>{date}</h3>
             <h3>{time}</h3>
             <h3>{title}</h3>
